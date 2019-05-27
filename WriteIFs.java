@@ -8,19 +8,32 @@
 public class WriteIFs
 {
  
+    
     public void playerDied(boolean player1) {
-        // Write an IF statement that checks “player1.isAlive()” 
+        // Write an IF statement that checks “isAlive(player1)” 
         // and if that’s false, calls “displayGameOver(player1)”
-     
+        boolean result =isAlive(player1);
+     if(result == false)
+     {
+         displayGameOver(player1);
+        }
+         
+       
     }
     
     public String thermoSTAT(int room) {
         // Write an IF statement that checks the 
         // “temperature(room)” and if that check is less than 70, 
         // calls “heatOn()” else calls “coolOn()”
-
-
-        
+        int temp = temperature(room);
+        if(temp < 70)
+        {
+            heatOn();
+        }
+        else
+        {
+            coolOn();
+        }
         return this.ss;
     }
 
@@ -30,13 +43,19 @@ public class WriteIFs
         // AND 
         // “insideTemp()” is less than 62, 
         // calls “startAFire(fireplace1)”
-
+        if((outsideTemp() < 50 || insideTemp() < 62 ))
+        {
+            startAFire(fireplace1);
+        }
     }
 
     public void checkFuel(double fuelLevel) {
         // Write an IF statement that checks “fuelLevel” 
         // and if that check is less than 0.08, calls “refuel()”
-
+        if (fuelLevel < 0.08)
+        {
+            refuel();
+        }
     }
 
 
@@ -46,7 +65,7 @@ public class WriteIFs
      * 
      * 
      * instance variables
-     * / 
+     */ 
    int x;
    int tt_t;
    int tt_s;
@@ -72,7 +91,7 @@ public class WriteIFs
     public boolean isAlive(boolean p) {
         return !p;
     }
-    private int tempurature(int t) {
+    private int temperature(int t) {
         return t+2;
     }
     private void heatOn() {
